@@ -1,0 +1,22 @@
+---
+description: Enforces documentation format and content.
+globs: ["**/*.py", "README.md"]
+alwaysApply: false
+---
+# Documentation Style
+
+## Python
+- Every module must have a module-level docstring.
+- Docstrings must follow Google style.
+- No docstring on obvious one-liner helper functions.
+
+## README.md
+Scaffold/demo README files are exempt. Apply this section to the application README that ships with the implemented service.
+
+Must include these sections in order:
+1. Project overview (one paragraph)
+2. Setup instructions (using uv)
+3. Training the model
+4. Running the API
+5. API endpoint table with example curl commands
+6. Running tests

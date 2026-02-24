@@ -1,0 +1,11 @@
+---
+description: Enforces type annotations on all code.
+globs: ["**/*.py"]
+alwaysApply: true
+---
+# Typing Standards
+
+- All function signatures must have type hints for parameters and return types.
+- All Pydantic models must use explicit field types. No `Any` without justification.
+- Use `list[str]` not `List[str]` (modern Python syntax, no typing imports for builtins).
+- Return types must be explicit, including `-> None` for functions that return nothing.

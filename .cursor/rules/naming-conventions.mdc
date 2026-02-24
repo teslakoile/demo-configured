@@ -1,0 +1,19 @@
+---
+description: Enforces naming patterns for endpoints, models, and files.
+globs: ["src/**/*.py"]
+alwaysApply: false
+---
+# Naming Conventions
+
+## Endpoints
+- All endpoint paths are kebab-case: `/predict-single`, `/predict-batch`, `/model-info`.
+- All routes are prefixed with `/api/v1/`.
+- Router file: `src/routes.py` or `src/api/v1/routes.py`.
+
+## Pydantic Models
+- Suffixed by purpose: `PredictionRequest`, `PredictionResponse`, `HealthResponse`.
+- Never use raw dicts for request/response bodies.
+
+## Model Artifacts
+- File naming: `{model_type}_{dataset}_{YYYYMMDD}.joblib`
+- Example: `random_forest_iris_20250224.joblib`

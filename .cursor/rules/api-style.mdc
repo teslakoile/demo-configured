@@ -1,0 +1,23 @@
+---
+description: Enforces consistent API response envelope and metadata.
+globs: ["src/**/*.py"]
+alwaysApply: false
+---
+# API Response Style
+
+All endpoints must return a consistent envelope:
+
+```json
+{
+  "status": "success" | "error",
+  "data": { ... },
+  "meta": {
+    "model_version": "random_forest_iris_20250224",
+    "inference_time_ms": 12.3
+  }
+}
+```
+
+- Never return raw prediction values. Always wrap in the envelope.
+- The `meta` block must always include `model_version` and `inference_time_ms`.
+- Error responses use the same envelope with `"status": "error"` and a `"detail"` field inside `data`.

@@ -1,0 +1,13 @@
+---
+description: Enforces model loading and serving patterns.
+globs: ["src/**/*.py"]
+alwaysApply: false
+---
+# Model Lifecycle
+
+- Model must be loaded once at app startup via FastAPI lifespan context manager.
+- Never load or train the model inside a request handler.
+- Model artifacts are saved to `models/` directory.
+- Training script: `src/train.py`. Must use a fixed random seed for reproducibility.
+- The training script must emit evaluation metrics (accuracy, classification report) via structured logs (JSON output to stdout is acceptable).
+- The training script must save the model using joblib.

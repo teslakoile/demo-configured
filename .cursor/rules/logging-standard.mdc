@@ -1,0 +1,15 @@
+---
+description: Enforces structured logging on all operations.
+globs: ["src/**/*.py"]
+alwaysApply: false
+---
+# Logging Standard
+
+- Use `structlog` with JSON output. No `print()` statements anywhere in `src/`.
+- Every prediction request must log:
+  - Timestamp
+  - Input features (hashed, not raw values, for privacy)
+  - Prediction result
+  - Inference time in milliseconds
+- App startup must log: model path loaded, model version, app version.
+- Use log levels appropriately: INFO for requests, WARNING for degraded responses, ERROR for failures.

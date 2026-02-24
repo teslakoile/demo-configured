@@ -1,0 +1,12 @@
+---
+description: Enforces project folder layout and module organization.
+globs: ["**/*.py"]
+alwaysApply: true
+---
+# Project Structure
+
+- All source code goes in `src/`. Entry point is `src/main.py`.
+- All tests go in `tests/`. Mirror the `src/` structure (e.g., `tests/test_main.py`).
+- Model artifacts go in `models/` with naming: `{model_type}_{dataset}_{YYYYMMDD}.joblib`.
+- Config via environment variables or `.env` file. No hardcoded paths.
+- No single-file applications. Separate concerns: `src/main.py` (app), `src/model.py` (model loading/training), `src/schemas.py` (pydantic models), `src/config.py` (settings).

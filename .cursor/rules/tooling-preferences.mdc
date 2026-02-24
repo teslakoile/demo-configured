@@ -1,0 +1,14 @@
+---
+description: Enforces uv and pyproject.toml as the standard tooling.
+alwaysApply: true
+---
+# Tooling Preferences
+
+- Use `uv` for all dependency and environment management.
+  - `uv sync` to install dependencies.
+  - `uv run <command>` to run scripts.
+  - `uv add <package>` to add dependencies.
+- For new Python work, create `.python-version` with `3.11` and create `pyproject.toml` before installing dependencies.
+- All project metadata goes in `pyproject.toml`. No `setup.py`, no `setup.cfg`, no `requirements.txt`.
+- Use `ruff` for linting and formatting. Config is in `pyproject.toml`.
+- Never use `pip install` directly.

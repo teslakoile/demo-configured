@@ -1,0 +1,16 @@
+---
+description: Enforces minimum test coverage and patterns.
+globs: ["tests/**/*.py"]
+alwaysApply: false
+---
+# Testing Requirements
+
+- Minimum one test per endpoint.
+- Tests must use FastAPI `TestClient` or `httpx.AsyncClient`.
+- Every test file must cover:
+  - Happy path (valid input, expected output).
+  - At least one error case (invalid input, expected error response).
+- Test the response envelope structure, not just the prediction value.
+- Model training tests: verify the saved model file exists and loads without error.
+- Standard test command: `uv run pytest`
+- For live demo-speed tasks, include tests but allow completion after smoke verification if full pytest is slow. Clearly report when the full suite was deferred.

@@ -1,0 +1,12 @@
+---
+description: Enforces specific HTTP status codes and error response formats.
+globs: ["src/**/*.py"]
+alwaysApply: false
+---
+# Error Taxonomy
+
+- 422 Unprocessable Entity: Pydantic validation errors. Return field-level details.
+- 400 Bad Request: Domain validation errors (e.g., negative petal length). Return a human-readable message specifying the valid range.
+- 503 Service Unavailable: Model not loaded or loading failed. Not 500.
+- 500 Internal Server Error: Unexpected exceptions only. Never expose raw tracebacks in the response.
+- All error responses must use the standard envelope with `"status": "error"`.
