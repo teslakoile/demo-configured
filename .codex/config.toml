@@ -1,8 +1,0 @@
-[model]
-default = "codex-medium"
-
-[profiles.planning]
-model = "codex-high"
-
-[project]
-project_doc_fallback_filenames = ["AGENTS.md"]
